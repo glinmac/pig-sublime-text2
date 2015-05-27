@@ -39,7 +39,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(PigStorage|BinStorage|BinaryStorage|PigDump|HBaseStorage|JsonLoader|JsonStorage|AvroStorage|TextLoader|PigStreaming|TrevniStorage|AccumuloStorage)\b</string>
+			<string>\b(PigStorage|BinStorage|BinaryStorage|PigDump|HBaseStorage|JsonLoader|JsonStorage|AvroStorage|TextLoader|PigStreaming|TrevniStorage|AccumuloStorage|OrcStorage)\b</string>
 			<key>name</key>
 			<string>support.function.storage.pig</string>
 		</dict>
@@ -57,13 +57,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(CONCAT|INDEXOF|LAST_INDEX_OF|LCFIRST|LOWER|REGEX_EXTRACT|REGEX_EXTRACT_ALL|REPLACE|SIZE|STRSPLIT|SUBSTRING|TOKENIZE|TRIM|UCFIRST|UPPER|LTRIM|RTRIM|ENDSWITH|STARTSWITH|TRIM)\b</string>
+			<string>\b(CONCAT|INDEXOF|LAST_INDEX_OF|LCFIRST|LOWER|REGEX_EXTRACT|REGEX_EXTRACT_ALL|REPLACE|SIZE|STRSPLIT|SUBSTRING|TOKENIZE|TRIM|UCFIRST|UPPER|LTRIM|RTRIM|ENDSWITH|STARTSWITH|TRIM|EqualsIgnoreCase|SPRINTF|STRSPLITTOBAG|UniqueID)\b</string>
 			<key>name</key>
 			<string>support.function.udf.string.pig</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(AddDuration|CurrentTime|DaysBetween|GetDay|GetHour|GetMilliSecond|GetMinute|GetMonth|GetSecond|GetWeek|GetWeekYear|GetYear|HoursBetween|MilliSecondsBetween|MinutesBetween|MonthsBetween|SecondsBetween|SubtractDuration|ToDate|WeeksBetween|YearsBetween|ToMilliSeconds|ToString|ToUnixTime)\b</string>
+			<string>\b(AddDuration|CurrentTime|DaysBetween|GetDay|GetHour|GetMilliSecond|GetMinute|GetMonth|GetSecond|GetWeek|GetWeekYear|GetYear|HoursBetween|MilliSecondsBetween|MinutesBetween|MonthsBetween|SecondsBetween|SubtractDuration|ToDate|ToMilliseconds|WeeksBetween|YearsBetween|ToMilliSeconds|ToString|ToUnixTime)\b</string>
 			<key>name</key>
 			<string>support.function.udf.datetime.pig</string>
 		</dict>
@@ -193,6 +193,25 @@
 			</dict>
 			<key>end</key>
 			<string>;?$</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?i)^\s*(fs|sh|clear|exec|help|history|kill|quit|run)\s+(.*)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.parameter.pig</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>string.other.pig</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

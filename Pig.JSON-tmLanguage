@@ -23,7 +23,7 @@
             "name": "storage.datatypes.pig"
         },
         {
-            "match": "\\b(PigStorage|BinStorage|BinaryStorage|PigDump|HBaseStorage|JsonLoader|JsonStorage|AvroStorage|TextLoader|PigStreaming|TrevniStorage|AccumuloStorage)\\b",
+            "match": "\\b(PigStorage|BinStorage|BinaryStorage|PigDump|HBaseStorage|JsonLoader|JsonStorage|AvroStorage|TextLoader|PigStreaming|TrevniStorage|AccumuloStorage|OrcStorage)\\b",
             "name": "support.function.storage.pig"
         },
         {
@@ -35,11 +35,11 @@
             "name": "support.function.udf.math.pig"
         },
         {
-            "match": "\\b(CONCAT|INDEXOF|LAST_INDEX_OF|LCFIRST|LOWER|REGEX_EXTRACT|REGEX_EXTRACT_ALL|REPLACE|SIZE|STRSPLIT|SUBSTRING|TOKENIZE|TRIM|UCFIRST|UPPER|LTRIM|RTRIM|ENDSWITH|STARTSWITH|TRIM)\\b",
+            "match": "\\b(CONCAT|INDEXOF|LAST_INDEX_OF|LCFIRST|LOWER|REGEX_EXTRACT|REGEX_EXTRACT_ALL|REPLACE|SIZE|STRSPLIT|SUBSTRING|TOKENIZE|TRIM|UCFIRST|UPPER|LTRIM|RTRIM|ENDSWITH|STARTSWITH|TRIM|EqualsIgnoreCase|SPRINTF|STRSPLITTOBAG|UniqueID)\\b",
             "name": "support.function.udf.string.pig"
         },
         {
-            "match": "\\b(AddDuration|CurrentTime|DaysBetween|GetDay|GetHour|GetMilliSecond|GetMinute|GetMonth|GetSecond|GetWeek|GetWeekYear|GetYear|HoursBetween|MilliSecondsBetween|MinutesBetween|MonthsBetween|SecondsBetween|SubtractDuration|ToDate|WeeksBetween|YearsBetween|ToMilliSeconds|ToString|ToUnixTime)\\b",
+            "match": "\\b(AddDuration|CurrentTime|DaysBetween|GetDay|GetHour|GetMilliSecond|GetMinute|GetMonth|GetSecond|GetWeek|GetWeekYear|GetYear|HoursBetween|MilliSecondsBetween|MinutesBetween|MonthsBetween|SecondsBetween|SubtractDuration|ToDate|ToMilliseconds|WeeksBetween|YearsBetween|ToMilliSeconds|ToString|ToUnixTime)\\b",
             "name" : "support.function.udf.datetime.pig"
         },
         {
@@ -118,6 +118,14 @@
             },
             "begin": "(?i)\\s*(DEFINE|DECLARE|REGISTER)\\s+(\\S+)",
             "end":";?$"
+        },
+        {
+            "begin": "(?i)^\\s*(fs|sh|clear|exec|help|history|kill|quit|run)\\s+(.*)",
+            "end": "$",
+            "beginCaptures": {
+                "1" : { "name" : "keyword.parameter.pig"},
+                "2" : { "name" : "string.other.pig"}
+            }
         }
     ],
     "scopeName": "source.pig",
